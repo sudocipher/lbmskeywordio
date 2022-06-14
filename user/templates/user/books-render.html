@@ -1,0 +1,33 @@
+{% extends 'user/index.html' %}
+
+{% block start %}
+<h3>Books</h3>
+
+<!-- {{book.id}} {{book.name}} {{book.author}} -->
+<table>
+    <thead>
+        <!-- <th>Id</th> -->
+        <th>Name</th>
+        <th>Author</th>
+        <th>Update/Delete</th>
+    </thead>
+    <tbody>
+            {% for book in books %}
+            <tr>
+                <!-- <td>{{book.id}}</td> -->
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                {% if user.is_authenticated %}
+                <td align="right">
+                    <a href="{% url 'book-update' book.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
+    
+                    <a href="{% url 'book-delete' book.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                </td>
+                {% endif %}
+                <br>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+{% endblock start%}

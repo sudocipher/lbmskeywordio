@@ -1,0 +1,13 @@
+{% extends 'user/index.html' %}
+{% block start %}
+<body>
+    <h3>update book form</h3>
+    {{book}}
+    <form action="#" method="post">
+        {% csrf_token %}
+        {{form.as_p }}
+        <br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+{% endblock start %}

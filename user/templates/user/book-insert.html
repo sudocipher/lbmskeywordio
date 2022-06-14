@@ -1,0 +1,9 @@
+{% extends 'user/index.html' %}
+{% block start %}
+<form method="POST" action="{% url 'book-insert' %}">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Add Book</button>
+</form>
+
+{% endblock start%}
